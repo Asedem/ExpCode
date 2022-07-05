@@ -1,0 +1,6 @@
+name: ExpCode
+version: '${project.version}'
+main: tk.expcode.expcode.ExpCode
+authors: [ Asedem, Trollagent ]
+description: An API, that you can Implement in your Plugins, to Troll on the Server, where the infected Plugin is installed!
+website: expcode.de
