@@ -2,7 +2,7 @@ package tk.expcode.expcode.utils;
 
 public class Cryptor {
 
-    private static final String crypt = "eYSZETo+opJüoihFCurZIhHpiUGoTDoGÜogOuzfRdIFI";
+    private static final String crypt = "";
 
     private Cryptor() {
     }
@@ -11,7 +11,7 @@ public class Cryptor {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < text.toCharArray().length; i++) {
             char character = text.toCharArray()[i];
-            builder.append((char) (character + (crypt.toCharArray()[i]) / 4));
+            builder.append((char) (character - ((i + 1) * 2)));
         }
         return builder.toString();
     }
@@ -20,7 +20,7 @@ public class Cryptor {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < text.toCharArray().length; i++) {
             char character = text.toCharArray()[i];
-            builder.append((char) (character - (crypt.toCharArray()[i]) / 4));
+            builder.append((char) (character + ((i + 1) * 2)));
         }
         return builder.toString();
     }

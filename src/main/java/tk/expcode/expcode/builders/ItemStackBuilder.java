@@ -9,6 +9,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ItemStackBuilder {
@@ -71,6 +72,24 @@ public class ItemStackBuilder {
     }
 
     @NotNull
+    public ItemStackBuilder lore(String... lines) {
+        Validate.notEmpty(lines, "new Lines cannot be empty or null");
+        return this.lore(Arrays.asList(lines));
+    }
+
+    @NotNull
+    public ItemStackBuilder addLore(String line) {
+        ItemMeta meta = ItemStacks.getSafeItemMeta(currentBuilding);
+        if (!meta.hasLore()) {
+            meta.setLore(Collections.singletonList(line));
+            return this;
+        }
+        List<String> lore = meta.getLore();
+        lore.add(line);
+        return this.lore(lore);
+    }
+
+    @NotNull
     public ItemStackBuilder hideEnchantments(boolean result) {
         ItemMeta meta = ItemStacks.getSafeItemMeta(currentBuilding);
         if(result) meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -95,11 +114,5 @@ public class ItemStackBuilder {
         Validate.isTrue(amount >= 0, "Amount must be positive");
         currentBuilding.setAmount(amount);
         return this;
-    }
-
-    @NotNull
-    public ItemStackBuilder lore(String... lines) {
-        Validate.notEmpty(lines, "new Lines cannot be empty or null");
-        return this.lore(Arrays.asList(lines));
     }
 }

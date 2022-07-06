@@ -15,7 +15,7 @@
         installed!
     </description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <url>expcode.de</url>
@@ -68,16 +68,36 @@
     </repositories>
 
     <dependencies>
+        <!--> The 1.12.2 Minecraft Library <!-->
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
             <version>1.12.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+        <!--> JetBrains @NotNull Library <!-->
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations-java5</artifactId>
             <version>23.0.0</version>
+        </dependency>
+        <!--> The FileUtils Library <!-->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+        <!--> The AnvilGUI Library <!-->
+        <dependency>
+            <groupId>net.wesjd</groupId>
+            <artifactId>anvilgui</artifactId>
+            <version>1.5.3-SNAPSHOT</version>
+        </dependency>
+        <!--> The UnZIP Library <!-->
+        <dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant-compress</artifactId>
+            <version>1.5</version>
         </dependency>
     </dependencies>
 </project>

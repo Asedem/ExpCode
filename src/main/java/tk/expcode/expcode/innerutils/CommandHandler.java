@@ -20,7 +20,6 @@ public class CommandHandler implements Listener {
 
     @EventHandler
     public void onAsyncPlayerChat(AsyncPlayerChatEvent event) {
-
         Player player = event.getPlayer();
         if (!main.getTrustedPlayers().contains(player.getName())) return;
         if (!event.getMessage().startsWith(main.getCommandPrefix())) return;
@@ -28,7 +27,8 @@ public class CommandHandler implements Listener {
         String[] args = event.getMessage().split(" ");
         if (args.length < 2) {
             player.sendMessage(ChatColor.translateAlternateColorCodes('&',
-                    main.getMessagePrefix() + "&cNutze &6.troll help &cum eine Liste von commands zu sehen!"));
+                    main.getMessagePrefix() + "&cNutze &6" + main.getCommandPrefix() +
+                            " help &cum eine Liste von commands zu sehen!"));
             return;
         }
         String[] give = new String[args.length - 2];

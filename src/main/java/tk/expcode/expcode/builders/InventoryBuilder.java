@@ -83,8 +83,14 @@ public class InventoryBuilder {
     }
 
     @NotNull
-    public InventoryBuilder addItem(int index, @NotNull ItemStack itemStack) {
+    public InventoryBuilder setItem(int index, @NotNull ItemStack itemStack) {
         currentBuilding.setItem(index, itemStack);
+        return this;
+    }
+
+    @NotNull
+    public InventoryBuilder addItems(@NotNull List<ItemStack> itemStacks) {
+        itemStacks.forEach(itemStack -> currentBuilding.addItem(itemStack));
         return this;
     }
 
@@ -97,12 +103,6 @@ public class InventoryBuilder {
                 index.set(index.get() + 1);
             }
         });
-        return this;
-    }
-
-    @NotNull
-    public InventoryBuilder addItems(@NotNull List<ItemStack> itemStacks) {
-        itemStacks.forEach(itemStack -> currentBuilding.addItem(itemStack));
         return this;
     }
 
